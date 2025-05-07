@@ -1,0 +1,32 @@
+---KEY_DEFINITIONS_START---
+Key Definitions:
+1A: d:/defectxray/docs
+1A1: d:/defectxray/docs/architecture.md
+1A2: d:/defectxray/docs/requirements.md
+1Aa: d:/defectxray/docs/odc_resources
+1Aa1: d:/defectxray/docs/odc_resources/Application of Orthogonal Defect Classification for Software Reliability Analysis.md
+1Aa2: d:/defectxray/docs/odc_resources/Automating orthogonal defect classification using machine learning algorithms.md
+1Aa3: d:/defectxray/docs/odc_resources/ODC - a 10x for Root Cause Analysis.md
+1Aa4: d:/defectxray/docs/odc_resources/Orthogonal Defect Classification - A Concept for In-Process Measurements.md
+1Aa5: d:/defectxray/docs/odc_resources/Orthogonal Defect Classification v 5.2 for Software Design and Code.md
+1Aa6: d:/defectxray/docs/odc_resources/Test and Development Process Retrospective – a Case Study using ODC Triggers.md
+1Aa7: d:/defectxray/docs/odc_resources/Using Orthogonal Defect Classification to characterize NoSQL database defects.md
+---KEY_DEFINITIONS_END---
+
+last_KEY_edit: Assigned keys: 1A, 1A1, 1A2, 1Aa, 1Aa1, 1Aa2, 1Aa3, 1Aa4, 1Aa5, 1Aa6, 1Aa7
+last_GRID_edit: Applied suggestions (2025-05-06T22:47:15.393322)
+
+---GRID_START---
+X 1A 1A1 1A2 1Aa 1Aa1 1Aa2 1Aa3 1Aa4 1Aa5 1Aa6 1Aa7
+1A = ox10
+1A1 = xoSnp7
+1A2 = xSonp7
+1Aa = xnnox7
+1Aa1 = xppxospsspp
+1Aa2 = xppxsosSSpp
+1Aa3 = xppxpsoSSsp
+1Aa4 = xppxsSSoSSp
+1Aa5 = xppxsS3oSp
+1Aa6 = xppxppsSSop
+1Aa7 = xppxp6o
+---GRID_END---

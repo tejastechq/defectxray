@@ -1,4 +1,4 @@
-2025-05-06 22:47:42,869 - cline_utils.dependency_system.utils.cache_manager - DEBUG - Spun up new cache: path_normalization with TTL 600s
-2025-05-06 22:47:42,869 - __main__ - INFO - Attempting to show keys and check status (p, s, S) from tracker: d:/defectxray/cline_docs/doc_tracker.md
-2025-05-06 22:47:42,869 - cline_utils.dependency_system.utils.cache_manager - DEBUG - Spun up new cache: tracker_data with TTL 600s
-2025-05-06 22:47:42,870 - cline_utils.dependency_system.io.tracker_io - DEBUG - Read tracker 'doc_tracker.md': 11 keys, 11 grid rows
+2025-05-07 11:44:33,395 - cline_utils.dependency_system.utils.cache_manager - DEBUG - Spun up new cache: path_normalization with TTL 600s
+2025-05-07 11:44:33,396 - __main__ - INFO - Attempting to show keys and check status (p, s, S) from tracker: d:/defectxray/src/src_module.md
+2025-05-07 11:44:33,396 - cline_utils.dependency_system.utils.cache_manager - DEBUG - Spun up new cache: tracker_data with TTL 600s
+2025-05-07 11:44:33,396 - cline_utils.dependency_system.io.tracker_io - DEBUG - Read tracker 'src_module.md': 7 keys, 7 grid rows
