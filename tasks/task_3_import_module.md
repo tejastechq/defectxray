@@ -1,4 +1,45 @@
-# Task 3: Develop Import Module for Defect Data Ingestion
+# Task 3: Import Module for DefectXray MVP
+
+## Objective
+Develop an Import Module to ingest defect data from enterprise tools (e.g., Jira, Sentry) via APIs or manual uploads (CSV, JSON), normalizing and storing metadata in a PostgreSQL database for the DefectXray MVP by August 2025, ensuring scalability and user customization.
+
+## Scope
+- Support ingestion from at least two major defect tracking tools (Jira, Sentry) and manual file uploads.
+- Normalize data into a consistent format aligned with PostgreSQL schema (Task 2).
+- Map initial ODC metadata (Defect Type, Activity) using heuristic rules for gap handling.
+- Ensure scalability for high-volume enterprise data and customization for user needs.
+
+## Steps
+1. **API Integration**: Develop connectors for Jira and Sentry APIs to fetch defect data in real-time or batch mode, supporting OAuth authentication.
+2. **Manual Upload**: Create a parser for CSV/JSON uploads, validating required fields (e.g., defect ID, description, timestamp).
+3. **Normalization**: Transform incoming data into a unified format, mapping fields to PostgreSQL schema (Task 2), with keyword priority defaults for parsing (e.g., prioritize 'title' over 'comment' for defect type).
+4. **ODC Mapping**: Apply heuristic rules from `cline_docs/odc_gap_handling.md` to infer missing ODC attributes (e.g., Defect Type, Activity) during import.
+5. **Batch Processing**: Design for flexible batch processing, targeting 1-3 minutes for 10,000 defects, with configurable batch sizes (e.g., 100-10,000 defects per batch) to support enterprise scalability.
+6. **Metadata Testing**: Expand testing for missing metadata scenarios, ensuring robust fallback logic (e.g., user prompts for critical fields).
+7. **Customization Options**: Allow users to configure import settings, such as batch sizes and the option to disable complex metadata parsing (e.g., skip ODC Trigger extraction) for faster processing in MVP.
+8. **Scalability Design**: Ensure the module can handle high defect volumes (target: 1,000 defects/hour with <5% error rate in metadata mapping) through efficient queuing and parallel processing.
+
+## Dependencies
+- **Task 2 (PostgreSQL Defect Schema)**: Requires schema definition for data storage and ODC attribute mapping.
+- **ODC Gap Handling Strategy (cline_docs/odc_gap_handling.md)**: Relies on heuristic rules for missing metadata.
+
+## Deliverables
+- **Import Connectors**: Functional API connectors for Jira and Sentry, plus CSV/JSON parser.
+- **Normalization Logic**: Code or spec for transforming defect data into unified format.
+- **Configuration Spec**: UI or API design for customizing batch sizes and metadata parsing options.
+- **Performance Report**: Validation of processing 1,000 defects/hour with error rate metrics.
+
+## Timeline
+- **June 2025**: Complete API connectors and normalization logic.
+- **July 2025**: Test scalability with simulated enterprise datasets (5,000-10,000 defects) and validate customization options with beta users.
+- **August 2025**: Finalize integration with PostgreSQL schema for MVP launch.
+
+## Notes
+- Manual override analysis for MVP ensures users can correct import errors or metadata gaps.
+- Scalability and customization address enterprise needs for high-volume data and workflow flexibility.
+
+## Changelog
+- May 2025: Updated task with requirements for configurable batch sizes, metadata parsing options, and scalability targets (1,000 defects/hour).
 
 ## Task Overview
 **Task ID**: T3-MVP-IMPORT

@@ -1,4 +1,42 @@
-# Task 6: Create API Endpoints for CI/CD Integration
+# Task 6: API Endpoints for DefectXray MVP
+
+## Objective
+Develop secure, scalable RESTful API endpoints to support defect data ingestion, retrieval, and user feedback for the DefectXray MVP by August 2025, ensuring enterprise-grade security and performance.
+
+## Scope
+- Provide endpoints for importing defect data (Task 3), querying severity and ODC metadata (Tasks 4, 5), and submitting user feedback.
+- Ensure robust security for enterprise data and scalability for high request volumes.
+
+## Steps
+1. **Endpoint Design**: Define RESTful endpoints (e.g., POST /defects for import, GET /defects for query with filters for severity, ODC attributes).
+2. **Authentication**: Implement OAuth 2.0 for secure access, with specific scopes (e.g., defects:read, defects:write) to limit permissions.
+3. **Rate Limiting**: Add configurable rate limits (default 100 requests/minute, adjustable up to 500) to prevent abuse and ensure fair usage for enterprise clients.
+4. **Data Validation**: Validate incoming data against PostgreSQL schema (Task 2), rejecting malformed requests with clear error messages.
+5. **Logging**: Implement metadata-only audit logging (e.g., user ID, endpoint, timestamp) for MVP, avoiding sensitive data exposure, with logs encrypted at rest.
+6. **Encryption**: Prioritize TLS 1.3 for data in transit and AES-256 for sensitive fields (e.g., user feedback) at rest to meet enterprise security standards.
+7. **Scalability**: Design endpoints to handle high throughput (target: 1,000 requests/minute with <100ms latency for 90% of calls) using load balancing and caching (e.g., Redis for GET requests).
+
+## Dependencies
+- **Task 2 (PostgreSQL Defect Schema)**: Requires schema for data validation and storage.
+- **Task 3 (Import Module)**: Must integrate with import endpoints for data ingestion.
+- **Task 5 (Reporting Dashboard)**: Relies on query endpoints for data visualization.
+
+## Deliverables
+- **API Specification**: OpenAPI/Swagger doc for endpoints, including auth, rate limits, and example payloads.
+- **Security Config**: Documentation of OAuth scopes, encryption standards, and audit logging approach.
+- **Performance Test**: Report validating scalability targets (1,000 requests/minute, <100ms latency).
+
+## Timeline
+- **June 2025**: Complete endpoint design, authentication, and initial security setup.
+- **July 2025**: Implement rate limiting, logging, and test scalability with simulated enterprise load.
+- **August 2025**: Finalize integration with other modules for MVP launch.
+
+## Notes
+- Security features (OAuth, encryption) are critical for enterprise trust and compliance.
+- Scalability design ensures API performance under high demand from multiple clients.
+
+## Changelog
+- May 2025: Updated task with OAuth scopes, configurable rate limits, metadata-only audit logging, and prioritized encryption features.
 
 ## Task Overview
 **Task ID**: T6-MVP-API

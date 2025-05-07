@@ -1,4 +1,43 @@
-# Task 5: Build Basic Reporting Dashboard
+# Task 5: Reporting Dashboard for DefectXray MVP
+
+## Objective
+Create an interactive web-based dashboard for visualizing defect severity and ODC metadata, enabling enterprise users to analyze and prioritize defects for the DefectXray MVP by August 2025, with a focus on usability and scalability.
+
+## Scope
+- Display defect counts by severity (Low, Medium, High) and basic ODC attributes (Defect Type, Activity).
+- Provide interactive filtering and drill-down capabilities for detailed analysis.
+- Ensure performance and scalability for large enterprise datasets.
+
+## Steps
+1. **UI Design**: Develop a responsive dashboard layout using a framework like React, with charts (e.g., bar, pie) for severity and ODC attribute distribution.
+2. **Data Visualization**: Implement visualizations for defect trends (e.g., severity over time) using libraries like Chart.js, with dynamic data loading.
+3. **Filtering**: Add filters for severity, ODC attributes, date range, and source tool (e.g., Jira, Sentry) to allow targeted analysis.
+4. **Drill-Down**: Enable drill-down into defect subsets (e.g., click 'High Severity' to view details), with table sorting by Severity (DESC) and Created At (DESC).
+5. **Feedback Widget**: Include a simplified feedback widget (single rating 1-5, target 75% satisfaction) for users to rate classification accuracy, with optional comments.
+6. **Performance Optimization**: Set scalability thresholds (e.g., handle 10,000 defects with <2-second load time) using pagination or lazy loading, and limit chart data points (e.g., top 5 categories, 'Other' for rest) with a UI note.
+7. **Accessibility**: Implement basic accessibility (e.g., ARIA labels for charts), deferring full WCAG 2.1 compliance to post-MVP (January 2026).
+
+## Dependencies
+- **Task 2 (PostgreSQL Defect Schema)**: Requires access to stored defect data and metadata.
+- **Task 4 (Severity Analysis Engine)**: Relies on processed severity and ODC data for visualization.
+- **Task 6 (API Endpoints)**: Needs secure API endpoints to fetch dashboard data.
+
+## Deliverables
+- **Dashboard Prototype**: Functional UI with severity and ODC visualizations, filters, and drill-down.
+- **Feedback Widget**: Integrated rating system for user input on classification accuracy.
+- **Performance Spec**: Documentation of scalability thresholds and load time targets (e.g., <2 seconds for 10,000 defects).
+
+## Timeline
+- **June 2025**: Complete UI design and initial data visualization.
+- **July 2025**: Implement filtering, drill-down, feedback widget, and test scalability with large datasets (10,000+ defects).
+- **August 2025**: Finalize integration with API endpoints for MVP launch.
+
+## Notes
+- Usability features like drill-down sorting and simplified feedback enhance enterprise user experience.
+- Scalability measures (pagination, data limits) ensure performance with large defect volumes.
+
+## Changelog
+- May 2025: Updated task with drill-down sorting, simplified feedback widget, chart performance limits with 'Other' category, and scalability thresholds.
 
 ## Task Overview
 **Task ID**: T5-MVP-DASHBOARD

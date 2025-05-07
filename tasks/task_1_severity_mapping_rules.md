@@ -1,4 +1,44 @@
-# Task 1: Define Severity Mapping Rules and ODC Attribute Logic
+# Task 1: Severity Mapping Rules for DefectXray MVP
+
+## Objective
+Develop a rule-based system for mapping defect characteristics to severity levels (Low, Medium, High) with high accuracy (target: 80% precision) for the DefectXray MVP, supporting enterprise CI/CD prioritization by August 2025.
+
+## Scope
+- Focus on core defect attributes (e.g., description, type, impact) and basic ODC attributes (Defect Type, Activity) for severity classification.
+- Provide user override mechanisms to build trust and allow for custom enterprise rules.
+- Ensure integration with Severity Analysis Engine (Task 4) for rule application.
+
+## Steps
+1. **Define Severity Criteria**: Establish clear rules based on industry standards (e.g., Critical/High: system crashes or major functionality loss; Medium: partial impact with workarounds; Low: cosmetic issues).
+2. **Incorporate ODC Attributes**: Weight severity based on ODC metadata (e.g., Defect Type 70%, Activity 30%) when available, with fallback to description keywords if metadata is incomplete.
+3. **Develop Rule Engine**: Create a configurable rule engine allowing predefined and custom rules for severity mapping, supporting enterprise-specific needs.
+4. **Validation Dataset**: Build a dataset of 20-30 defects from 3-4 CI/CD pipelines (e.g., Jira, Sentry) for rule validation, targeting data collection in June 2025.
+5. **User Override Mechanism**: Implement a mechanism for users to override severity classifications with feedback logged for rule refinement (stored in PostgreSQL schema, Task 2).
+6. **Custom Keyword Validation**: Add warnings for custom keyword inputs to prevent rule conflicts (e.g., overlapping keywords for High and Medium severity), ensuring rule integrity.
+7. **Security for Overrides**: Secure user override data with encryption (AES-256) to protect sensitive enterprise feedback and ensure compliance with GDPR and other standards.
+
+## Dependencies
+- **Task 2 (PostgreSQL Defect Schema)**: Requires schema to store defect data, ODC attributes, and override logs.
+- **Task 4 (Severity Analysis Engine)**: Must integrate with the engine for rule execution and feedback processing.
+- **ODC Gap Handling Strategy (cline_docs/odc_gap_handling.md)**: Relies on heuristic rules for missing ODC metadata.
+
+## Deliverables
+- **Severity Rule Set**: A documented set of rules achieving 80% precision on validation dataset.
+- **Configuration Interface**: API or UI spec for rule customization and weight adjustment (e.g., modify Defect Type weight from 70% to 80%).
+- **Override Log Format**: Schema design for storing user overrides with encrypted feedback fields.
+
+## Timeline
+- **June 2025**: Complete rule definition, dataset collection, and initial validation.
+- **July 2025**: Test customization and override features with beta users, refine based on feedback.
+- **August 2025**: Finalize integration with Severity Analysis Engine for MVP launch.
+
+## Notes
+- User feedback mechanisms are critical for continuous improvement of severity rules and ODC integration.
+- Customizable weights and rules address enterprise variability in defect prioritization.
+- Security measures for override data ensure enterprise trust and compliance.
+
+## Changelog
+- May 2025: Updated task with requirements for custom keyword validation warnings, configurable severity weights, and security for user overrides.
 
 ## Task Overview
 **Task ID**: T1-MVP-SEV-ODC
