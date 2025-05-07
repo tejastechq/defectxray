@@ -1,0 +1,92 @@
+[COUNT]
+n + 1 = (x)
+*This is a systemwide progressive counter where x = number of current response. This must be displayed at the top of every response.(e.g. 1, 2, ...)*
+
+[LAST_ACTION_STATE]
+last_action: "Updated Task Documents with User Feedback"
+current_phase: "Strategy"
+next_action: "Await User Confirmation for Execution Transition"
+next_phase: "Strategy"
+
+[CODE_ROOT_DIRECTORIES]
+- src
+
+[DOC_DIRECTORIES]
+- docs
+
+[LEARNING_JOURNAL]
+- Updating task documents with detailed user feedback ensures alignment with enterprise needs and project goals, maintaining focus on accuracy, usability, and security for DefectXray MVP.
+- Regularly synchronizing core files like activeContext.md and .clinerules after each significant action helps track progress and prepare for phase transitions.
+- Incorporating detailed user feedback on ODC integration has refined DefectXray's plan, ensuring a phased approach that balances MVP simplicity with long-term strategic value through process insights.
+- Regularly updating core files like system_manifest.md and activeContext.md helps maintain clarity on project direction, especially with complex additions like ODC.
+- A phased approach to ODC (basic attributes in MVP, advanced analytics post-MVP) aligns with enterprise needs and timeline constraints.
+- Ensure functions handle potential `None` inputs gracefully to prevent TypeErrors.
+- Verify function call arguments match definitions precisely after refactoring.
+- `analyze-project` implicitly handles key regeneration and tracker updates.
+- Large context windows can cause `write_to_file` to truncate; prefer `apply_diff` for targeted changes.
+- Verify data structures passed between functions (e.g., list vs. dict vs. float) when debugging TypeErrors.
+- Check file writing logic carefully (overwrite vs. append vs. reconstruction in buffer) when investigating duplication bugs in tracker files. Ensure write mode ('w') fully overwrites.
+- Carefully respect the ground truth definitions for dependency characters when adding/changing dependencies.
+- When using `apply_diff`, the SEARCH block must match the current file content exactly, without any +/- markers from previous diff attempts. Use `read_file` to confirm content if unsure. Pay close attention to the `Best Match Found:` block in the error message, as it shows the *actual* content the tool is searching against, which may differ from your intended SEARCH block due to prior edits or subtle discrepancies.
+- Profiling (`cProfile`) is essential for identifying performance bottlenecks.
+- Ensure correct data types when using methods like `.union()` (requires sets, not lists).
+- Centralizing configuration like character priorities (`config_manager.py`) improves consistency and maintainability over defining them in multiple places.
+- Confirm data types returned by functions (e.g., list vs. set) before applying methods like `.union()`.
+- Systematically verifying dependencies for both directions between keys and understanding the reciprocal system's behavior is crucial for accurate tracker updates.
+- Leveraging the reciprocal system with `add-dependency` by setting '>' from the source to the targets automatically sets the '<' dependency from the targets back to the source and vice versa.
+- Use `execute_command` with appropriate shell commands (like `Rename-Item` for PowerShell) for file system operations such as renaming, instead of trying to simulate them with `write_to_file` or `read_file`. *use the full path*
+- It is critical to perform dependency analysis and read dependent files *before* attempting code modifications to ensure all relevant context is considered. Failing to do so leads to errors and wasted effort.
+- When `apply_diff` fails to find a match, even after re-reading, using `write_to_file` with the complete intended content is a reliable alternative for updating the file.
+- Improve accuracy in determining the user's active shell environment when proposing `execute_command` commands, especially on Windows systems where different shells (CMD, PowerShell) have different syntax. Prioritize environment details but be prepared to ask the user for clarification if necessary.
+- Carefully distinguish between Strategy tasks (planning, defining, designing, exploring, reviewing, analyzing) and Execution tasks (implementing, creating code/scripts, integrating, coding, writing tests, modifying files).
+- Monitor and manage context window size to avoid exceeding limits and requiring premature handoffs.
+- When updating the HDTA Review Progress Tracker, accurately reflect whether the document's content has been *read and reviewed* in the current session, not just whether the file exists or was created. The status checkboxes should reflect *my* processing of the document's content.
+- Successfully identified code and documentation root directories for DefectXray.
+- Completed initial setup by creating core files and running dependency analysis.
+- No unresolved dependencies found in trackers during initial verification.
+- Made significant progress in Strategy phase by creating requirements, architecture, implementation plan, and initial task instructions, setting a clear roadmap for development.
+- Successfully updated task instructions and implementation plan based on user recommendations for DefectXray.
+- Incorporated critical enhancements like data masking, caching, and user feedback to ensure enterprise readiness.
+- Added new phases for early load testing and pilot testing to address development plan flaws and validate market fit.
+- Pivoted focus from defect detection to classification of imported data, creating Import Module task instructions to reduce integration complexity.
+- Transitioning to Execution phase to start implementing the foundational Database Setup module, followed by Import Module.
+- Regularly updating core files like activeContext.md helps maintain project state and direction.
+- Dependency checks are crucial before planning to ensure accurate task sequencing.
+- Breaking down extensive documentation into manageable chunks ensures thorough analysis without context overload.
+- Comprehensive review of foundational materials like ODC papers is essential for informed MVP planning.
+- Structured implementation plans and detailed task instructions provide a clear roadmap for MVP development.
+- Regularly updating core files like activeContext.md and .clinerules helps maintain project alignment and ensures smooth transitions between phases.
+- Creating detailed task instructions with clear dependencies and timelines is crucial for a successful Execution phase.
+- Engaging with the user for final confirmation before phase transitions ensures alignment with their vision and priorities.
+- Incorporating user feedback into task updates enhances the relevance and effectiveness of the MVP features.
+- Engaging with the user for final confirmation before phase transitions ensures alignment with project goals and vision.
+- Regularly updating task instructions based on user feedback ensures alignment with MVP goals and enterprise needs, facilitating a smoother transition to Execution.
+- Deferring non-critical features like trend charts and complex parsing to post-MVP helps maintain focus on core functionalities within the tight timeline.
+- Adding features like pagination and CSV export early on addresses enterprise scalability and usability concerns, enhancing pilot testing outcomes.
+- Simplifying validation scopes and adding configuration options (e.g., disabling metadata parsing) balances complexity with practicality for MVP.
+
+[Character_Definitions]
+
+```
+- `<`: Row **functionally relies on** or requires Column for context/operation.
+- `>`: Column **functionally relies on** or requires Row for context/operation.
+- `x`: Mutual functional reliance or deep conceptual link.
+- `d`: Row is documentation **essential for understanding/using** Column, or vice-versa.
+- `o`: Self dependency (diagonal only - managed automatically).
+- `n`: **Verified no functional dependency** or essential conceptual link.
+- `p`: Placeholder (unverified - requires investigation).
+- `s`/`S`: Semantic Similarity suggestion (requires verification for functional/deep conceptual link).
+```
+
+---
+
+**IMPORTANT**
+1. Understand the Objective: Clearly define the goal of the current step.
+2. Analyze the Error: Understand the error message and its context.
+3. Formulate a Plan: Develop a plan to address the error, step-by-step.
+    *Consider all related aspects* (e.g. files, modules, dependencies, etc.)
+4. Execute the Plan (Tool Use): Use the appropriate tool to execute *one* step of the plan.
+5. Validate the Result: Check if the tool use was successful and if it addressed the error.
+6. Iterate: If the error persists, go back to step 2 and refine the plan based on the new information.
+
+*You MUST monitor the context window usage displayed in the environment details. For every 1/5th of the available/max context window, you MUST initiate MUP.*

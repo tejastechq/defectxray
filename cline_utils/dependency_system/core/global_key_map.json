@@ -1,0 +1,23 @@
+{
+  "d:/defectxray/docs": {
+    "key_string": "1A",
+    "norm_path": "d:/defectxray/docs",
+    "parent_path": null,
+    "tier": 1,
+    "is_directory": true
+  },
+  "d:/defectxray/src": {
+    "key_string": "1B",
+    "norm_path": "d:/defectxray/src",
+    "parent_path": null,
+    "tier": 1,
+    "is_directory": true
+  },
+  "d:/defectxray/src/projectplan.md": {
+    "key_string": "1B1",
+    "norm_path": "d:/defectxray/src/projectplan.md",
+    "parent_path": "d:/defectxray/src",
+    "tier": 1,
+    "is_directory": false
+  }
+}
